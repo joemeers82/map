@@ -1,0 +1,74 @@
+<div class="map_body" ng-controller="mapCtrl">
+  
+  	<h1>Pacific Coast Trail</h1>
+  	
+  	<div class="user-input-container">
+		<button ng-click="showAddCoords =!showAddCoords" class="add-coord">Add New Coordinates</button><p>
+		
+		<div ng-show="showAddCoords">
+			<div class="coord-container">
+				<label>Lat</label><br>
+				<input ng-model="lat" type="number"/>
+			</div>
+
+			<div class="coord-container">
+				<label>Long</label><br>
+				<input ng-model="long" type="number"/>
+			</div>
+			<button class="add-coord" ng-click="addUserCoords();">Add Coords</button><p>
+			<button class="add-coord clearUserCoord" ng-click="clearCoordinates()">Clear Coordinates</button>
+		</div>
+		<button ng-click="showFindCoords =!showFindCoords" class="add-coord findCoord">Find Closest Marker</button>
+		<div ng-show="showFindCoords">
+			<div class="coord-container">
+				<label>Lat</label><br>
+				<input ng-model="closestLat" type="number"/>
+			</div>
+
+			<div class="coord-container">
+				<label>Long</label><br>
+				<input ng-model="closestLong" type="number"/>
+			</div>
+			<button class="add-coord findCoord" ng-click="userFindCoords()">Find Closest Marker</button><p>
+			
+			<div ng-show="matchLat">
+				Closest mile marker is at: <span ng-bind="mileMarker" id="foundMarker"></span><p>
+				Closest Lat is: <span ng-bind="matchLat" id="foundLat"></span><p>
+				Closest Long is: <span ng-bind="matchLong" id="foundLong"></span>
+				
+			</div>
+		</div>
+
+		<div class="recent-searches-container">
+			
+			<ul class="recent-searches" ng-repeat="coord in coordinates | limitTo:limit">
+	            
+				<li class="userCoords">
+					<span ng-click="removeCoord(coord)" class="remove">X</span>
+					<span class="lat">Lat:</span>
+					
+					<span ng-click=" editing = !editing" ng-hide="editing">{{coord[0]}}</span>
+					<input ng-show="editing" ng-model="coord[0]" class="editing-label" type="text" value="{{ coord[0] }}"/>
+					<br>
+					<span id="long-label">Long:</span>
+					<span ng-click=" editing = !editing" ng-hide="editing" >{{ coord[1]}} </span>
+					<input ng-show="editing" ng-model="coord[1]" class="editing-label" type="text" value="{{ coord[1] }}"/>
+					<br>
+					<span ng-show="editing" ng-click="updateCoord(coord); editing = !editing" class="update">Save</span>
+				</li>
+			</ul>
+		</div>
+	</div>
+  	
+  	<div class="map-container">
+  	  	<map ng-transclude center="map.center" options="map.options" class='google-map'> 
+  			<points coords="points.coords" options="points.options"></points>
+  			<polylines coords="polylines.coords" options="polylines.options"></polylines>
+  			
+
+  		</map>
+  		 
+  	</div>
+
+
+</div>	
