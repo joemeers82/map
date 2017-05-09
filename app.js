@@ -6,7 +6,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 
 
-const port = app.set('port',3000);
+const port = process.env.PORT || 3000;
 app.use(express.static(__dirname+'/public'));
 app.use('/node_modules', express.static(__dirname +'/node_modules'));
 
