@@ -39,9 +39,9 @@
 			</div>
 		</div>
 
-		<div class="recent-searches-container">
+		<div vs-repeat class="recent-searches-container">
 			
-			<ul class="recent-searches" ng-repeat="coord in coordinates | limitTo:limit">
+			<ul class="recent-searches" ng-repeat="coord in coordinates">
 	            
 				<li class="userCoords">
 					<span ng-click="removeCoord(coord)" class="remove">X</span>

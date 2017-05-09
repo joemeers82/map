@@ -1,4 +1,4 @@
-const app = angular.module('pctMap',['ngRoute','ngMaps'] );
+const app = angular.module('pctMap',['ngRoute','ngMaps','vs-repeat'] );
 
 //Routing
 app.config( $routeProvider =>{

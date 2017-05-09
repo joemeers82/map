@@ -180,6 +180,14 @@ $http.get('api/pct-data.json').then(function(res){
 		$scope.loadMap();
 	}
 
+	$scope.loadMore = ()=>{
+		console.log('boo');
+	    // let last = $scope.images[$scope.coordinates.length - 1];
+	    // for(let i = 1; i <= 8; i++) {
+	    //   $scope.coordinates.push(last + i);
+	    // }
+	 };
+
 	//Reloads map when changes occur
 	$scope.loadMap = ()=>{	
 		//Add coordinates from user input array to display markers
