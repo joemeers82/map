@@ -186,7 +186,7 @@ $http.get('api/pct-data.json').then(function(res){
 	$scope.removeCoord = coord=>{
 		let index = $scope.coordinates.indexOf(coord);
 	    $scope.coordinates.splice(index,1);
-	    
+	    $scope.userCoordinates.splice(index,1);
 		$scope.loadMap();
 	}
 
