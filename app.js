@@ -8,8 +8,8 @@ const bodyParser = require('body-parser');
 
 app.set('port', (process.env.PORT || 5000));
 // const port = process.env.PORT ||  5000;
-// app.use(express.static(__dirname+'/public'));
-// app.use('/node_modules', express.static(__dirname +'/node_modules'));
+app.use(express.static(__dirname+'/public'));
+app.use('/node_modules', express.static(__dirname +'/node_modules'));
 
 //Enable parsing of posted forms
 app.use(bodyParser.urlencoded({ extended : false }));
