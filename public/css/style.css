@@ -116,6 +116,9 @@ ul{
   .google-map{
     height:400px;
   }
+  .recent-searches-container{
+	max-height:400px;
+	}
 }
 @media (max-width: 700px) {
 	.coord-container{
@@ -126,11 +129,14 @@ ul{
   		border:solid thin grey;
   	}
   	.google-map{
-    	height:400px;
+    	height:350px;
   	}
   	.map-container{
   		width:100%;
   	}
+  	.recent-searches-container{
+		max-height:100px;
+	}
   	.recent-searches li{
   		margin:0 auto;
   	}

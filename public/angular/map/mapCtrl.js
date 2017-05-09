@@ -156,14 +156,6 @@ $http.get('api/pct-data.json').then(function(res){
 		}
 		
 	}
-
-	//Update User Coordinates for extending trail
-	$scope.updateUserCoord = coordinate =>{
-		$scope.lat = $scope.lat;
-		$scope.long = $scope.long;
-		
-		$scope.loadMap();
-	}
 	
 	//Update User Coordinates for finding closest coordinates on map
 	$scope.updateCoord = coord =>{
@@ -171,15 +163,6 @@ $http.get('api/pct-data.json').then(function(res){
 		$scope.cloestLong = $scope.Long;
 
 		$scope.loadMap();
-	}	
-	
-	//Delete User inputs for extending trail
-	$scope.removeUserCoord = coordinate=>{
-		let index = $scope.userCoordinates.indexOf(coordinate);
-	    $scope.userCoordinates.splice(index,1);
-	    $scope.coordinates.splice(index,1);
-	    
-	    $scope.loadMap();
 	}
 
 	//Delete User Input for finding closest coordinates on map
